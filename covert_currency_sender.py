@@ -1,9 +1,3 @@
-#
-#   The sender runs once, connects to the socket,
-#   sends a message through the pipeline
-#   to the receiver, and then receives a success message.
-#
-
 import zmq
 
 context = zmq.Context()
@@ -16,8 +10,8 @@ socket.connect("tcp://localhost:5555")
 #  Sends a message
 print(f"Sending message…")
 message = "{USD, EUR, 10000}"
-socket.send(message)
+socket.send_string(message)
 
 #  Get the reply.
-message = socket.recv()
-print(f"Message: " + str(message, "utf-8"))
+result = socket.recv()
+print(f"Result: " + str(result))
