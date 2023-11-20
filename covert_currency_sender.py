@@ -15,3 +15,4 @@ socket.send_string(message)
 #  Get the reply.
 result = socket.recv()
 print(f"Result: " + str(result))
+
