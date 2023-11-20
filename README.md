@@ -7,6 +7,7 @@ The microservice is stored in "convert_currency_reciever.py". It must be run fir
 Then the sender uses the socket 5555 to send a message using socket.send_string() in this format: "{*currency converting from(in 3 letters)*, *currency converting to(in 3 letters)*, *amount being converted*}
 e.g. "USD, JPY, 10000"
 
+# How microservice works
 After the microservice receives the message, it uses an API from fixer.io to convert the currency. However, due to the free service having many restrictions, it will only allow me to convert from EUR.
 
 What the microservice does to get around this is to first convert 1 EUR to the currency we are converting from.
