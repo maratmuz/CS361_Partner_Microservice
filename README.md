@@ -23,3 +23,6 @@ Finally, it sends a message back in this format: "{*Date of conversion*, *curren
 e.g. "11/20/2023, USD, JPY, 10000, 200000"
 
 At any point during conversion, if the API fails, the message sent back will instead be "FAIL"
+
+# Ending the while loop:
+If the sender sends the message "End" it will stop the receivers loop
