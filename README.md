@@ -26,6 +26,11 @@ e.g. "11/20/2023, USD, JPY, 10000, 200000"
 
 At any point during conversion, if the API fails, the message sent back will instead be "FAIL"
 
+# Progmattically Sending and Receiving messages:
+As a short summary, I want to clarify the process. Firstly, ensure that the ZMQ sockets are both connected and connected to the same one. In my code it's 5555. Next the sender should send a message as a string as shown above. 
+This string will be converted to binary, then reconverted to a string and processed by the receiver. Then the receiver will automatically reply with a string that is in the other format above, which will be converted to binary, but then of course reconverted.
+The reconversion occurs with str(). These strings can be stored into variables to be used in the rest of the program.
+
 # Ending the while loop:
 If the sender sends the message "End" it will stop the receiver loop. The sender file currently automatically does this with a function.
 
