@@ -36,6 +36,10 @@ def send_message(socket):
     result = socket.recv()
     print(f"==Result: " + str(result) + "\n")
 
+    end_receiver(socket)
+
+
+def end_receiver(socket):
     # Sends message to end
     time.sleep(1)
     print(f"==Sending message… \n")
