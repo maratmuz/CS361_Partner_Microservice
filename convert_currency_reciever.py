@@ -20,6 +20,11 @@ while True:
 
     #  Send reply back to client and break
     if message != "":
+        if message == "b'END'":
+            print("Ending Receiver")
+            message = "Ended Receiver"
+            socket.send_string(message)
+            break
         for i in range(len(message)):
             if message[i] == '{':
                 convert_from = message[i + 1] + message[i + 2] + message[i + 3]
@@ -72,9 +77,7 @@ while True:
                 result *= float(amount)
                 round(result, 2)
 
-                result_msg = "{Date: " + date + ", Convert From: " + convert_from + ", Convert To: " + convert_to + ", Total Amount: " + str(amount) + ", Result: " + str(result)
-                print(result_msg)
-
+                result_msg = "{" + date + ", " + convert_from + ", " + convert_to + ", " + str(amount) + ", " + str(result) + "}"
+                print("Message Sent: ", result_msg)
                 socket.send_string(result_msg)
-        break
 

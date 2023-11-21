@@ -1,4 +1,5 @@
 import zmq
+import time
 
 context = zmq.Context()
 
@@ -13,6 +14,16 @@ message = "{USD, EUR, 10000}"
 socket.send_string(message)
 
 #  Get the reply.
+time.sleep(1)
+result = socket.recv()
+print(f"Result: " + str(result))
+
+time.sleep(1)
+print(f"Sending message…")
+message = "END"
+socket.send_string(message)
+
+time.sleep(1)
 result = socket.recv()
 print(f"Result: " + str(result))
 
